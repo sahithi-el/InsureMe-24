@@ -34,8 +34,8 @@ pipeline {
            steps {
                echo 'pushing that image to the DockerHub'
                withCredentilas([usernamePassword(credentialsId: 'Dockerlogin', passwordVariable: 'dockerhub-pass', usernameVariable: 'dockerhub-user')]) {
-                  sh 'sudo docker login -u ${env.dockerhub-user} -p ${env.dockerhub-pass}'
-                  sh 'sudo docker push sahithielugala/spring-boot1:2.0'
+                  sh 'docker login -u ${env.dockerhub-user} -p ${env.dockerhub-pass}'
+                  sh 'docker push sahithielugala/spring-boot1:2.0'
                }
             }
 
@@ -44,7 +44,7 @@ pipeline {
         stage('Deploying') {
             steps {
                 echo 'Deploying that application to the production server'
-                sh 'sudo ansible-playbook /home/ubuntu/Insurence-project/playbook.yaml'
+                sh 'sudo ansible-playbook /home/ubuntu/Insurence-project/ansible-playbook.yaml'
             }
         }
     }
