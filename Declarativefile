@@ -24,12 +24,7 @@ pipeline {
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/InsureMeProject/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
     }
-   stage('Create Docker Image') {
-      steps {
-        echo 'Create a Docker Image'
-        sh 'docker build -t sahithielugala/spring-boot1:2.0'
-            }
-    }
+   
      stage('Docker Login') {
       steps {
         echo 'Docker Login'
@@ -38,7 +33,12 @@ pipeline {
                           }
                     }
              }
-    
+    stage('Create Docker Image') {
+      steps {
+        echo 'Create a Docker Image'
+        sh 'docker build -t sahithielugala/spring-boot1:2.0'
+            }
+    }
      stage('Push Docker Image') {
       steps {
         echo 'Push a Docker Image'
