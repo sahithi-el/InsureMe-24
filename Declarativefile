@@ -37,4 +37,5 @@ pipeline {
                   sh 'docker push sahithielugala/spring-boot1:2.0'
                }
             }
+     }
 }
