@@ -36,6 +36,14 @@ pipeline {
                 sh 'docker login -u sahithielugala -p Sahithi@1997'
                   sh 'docker push sahithielugala/spring-boot1:2.0'
                }
-            }
-     }
+      }
+        stage('Deploying') {
+            steps {
+                echo 'Deploying that application to the production server'
+                sh 'sudo ansible-playbook /home/ubuntu/InsureMeProject/ansible-playbook.yaml'
+        
+        
+         }
+      }
+   }
 }
