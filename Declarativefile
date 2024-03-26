@@ -33,7 +33,7 @@ pipeline {
      stage('Pushing') {
            steps {
                echo 'pushing that image to the DockerHub'
-                sh 'docker login -u 'sahithielugala' -p 'Sahithi@1997''
+                sh 'docker login -u sahithielugala -p Sahithi@1997'
                   sh 'docker push sahithielugala/spring-boot1:2.0'
                }
             }
