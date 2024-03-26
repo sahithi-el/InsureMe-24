@@ -27,7 +27,7 @@ pipeline {
    stage('Create Docker Image') {
       steps {
         echo 'Create a Docker Image'
-        sh 'docker build -t sahithielugala/spring-boot1:2.0'
+        sh 'docker build -t sahithielugala/spring-boot1:2.0 .'
             }
     }
      stage('Docker Login') {
